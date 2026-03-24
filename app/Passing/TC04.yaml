@@ -91,7 +91,7 @@ appId: com.sima.asvab
                 direction: DOWN
             - tapOn:
                 text: ".*mst-Answer-Correct"
-            - runFlow: ../Popup/ClosePopup.yaml
+            - runFlow: ../ClosePopup/ClosePopup.yaml
             - tapOn: "Next"
       # Check icon Submit
       - tapOn: icon-Submit
