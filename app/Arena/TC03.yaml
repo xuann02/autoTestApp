@@ -1,0 +1,31 @@
+appId: com.sima.asvab
+---
+# màn result
+- assertVisible: "Game Over     "
+# button review answers
+- tapOn: Review Your Answers
+# back về màn result
+- tapOn: mst-Back
+
+# button Play Again
+- tapOn: Play Again
+- repeat:
+    while:
+      notVisible: "Question 5"
+    commands:
+      - scrollUntilVisible:
+          element:
+            text: ".*mst-Answer-Correct"
+          direction: DOWN
+      - tapOn:
+          text: ".*mst-Answer-Correct"
+
+      - tapOn: "Next"
+
+- tapOn:
+    text: ".*mst-Answer-Incorrect"
+
+- assertVisible: Result
+- tapOn: mst-Back
+# Nếu hiển thị popup thì tắt đi
+- runScript: ../ClosePopup/ClosePopup.yaml

@@ -1,0 +1,7 @@
+appId: com.sima.asvab
+---
+- launchApp
+- tapOn: Arena
+
+# check popup Heart
+- assertVisible: Start -1

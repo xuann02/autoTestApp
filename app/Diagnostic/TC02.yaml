@@ -1,0 +1,39 @@
+appId: com.sima.asvab
+---
+- launchApp
+- tapOn: Tests
+#  Check hiển thị Diagnostic khi bắt đầu
+- tapOn: |-
+    Take our diagnostic test to assess your current level and get a personalized study plan.
+    Start
+
+# Làm màn game lần 1
+- repeat:
+    while:
+      notVisible: "Confirm"
+    commands:
+      - runScript: ../Daily/randomQuestion.js
+      - scrollUntilVisible:
+          element:
+            text: ".*mst-Answer.*"
+            index: ${output.choice}
+          direction: DOWN
+
+      - tapOn:
+          text: ".*mst-Answer.*"
+          index: ${output.choice}
+
+      # - assertVisible:
+      #     below: "Explanation:"
+
+      - tapOn: "Continue"
+
+# Popup Submit
+- assertVisible: SUBMIT
+- tapOn:
+    text: Dismiss
+
+# Back về màn Tests
+- tapOn: mst-Back
+
+- runScript: ../ClosePopup/ClosePopup.yaml

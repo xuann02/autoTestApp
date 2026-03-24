@@ -1,0 +1,41 @@
+appId: com.sima.asvab
+---
+- launchApp
+- tapOn: Study
+
+# 2. Chọn 1 topic bất kì để làm
+# case 1: app có topic để click
+- tapOn:
+    below: "Daily Challenge"
+    index: 2
+    optional: true
+
+# nếu có Continue → là case topic
+- repeat:
+    while:
+      visible: "Theory"
+    commands:
+      - tapOn:
+          text: Continue
+          optional: true
+
+# Case 2: app dạng Core map (không có topic list)
+- tapOn:
+    text: ".*Core 1"
+    optional: true
+
+- repeat:
+    while:
+      notVisible: "Try Again"
+    commands:
+      - scrollUntilVisible:
+          element:
+            text: ".*mst-Answer-Correct"
+          direction: DOWN
+      - tapOn:
+          text: ".*mst-Answer-Correct"
+
+      - tapOn: "Continue"
+
+# tắt popup đi
+- runScript: ../ClosePopup/ClosePopup.yaml

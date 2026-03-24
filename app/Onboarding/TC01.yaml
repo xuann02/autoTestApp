@@ -1,0 +1,117 @@
+appId: com.sima.ccna
+---
+- launchApp:
+    clearState: true
+
+# 1. Start app
+- tapOn: Start Now
+
+# 2. Exam date
+- assertVisible: When Is Your Exam?
+- runScript: randomChoice.js
+
+# 2.1 Không setup Exam
+- runFlow:
+    when:
+      true: ${output.choice == 0}
+    commands:
+      - tapOn: "I don't know"
+
+# 2.2 Setup Exam
+- runFlow:
+    when:
+      true: ${output.choice == 1}
+    commands:
+      - tapOn: Next
+
+# 3. Diagnostic
+- assertVisible: Diagnostic Test
+- runScript: randomChoice.js
+
+# 3.1 Không làm Dia
+- runFlow:
+    when:
+      true: ${output.choice == 0}
+    commands:
+      - tapOn: Not Now
+
+# 3.2 Làm Dia
+- runFlow:
+    when:
+      true: ${output.choice == 1}
+    commands:
+      - tapOn: Start Diagnostic Test
+      # Vào màn game
+      - repeat:
+          while:
+            visible: "Continue"
+          commands:
+            - runScript: ../Daily/randomQuestion.js
+
+            - scrollUntilVisible:
+                element:
+                  text: ".*mst-Answer.*"
+                  index: ${output.choice}
+                direction: DOWN
+
+            - tapOn:
+                text: ".*mst-Answer.*"
+                index: ${output.choice}
+
+            - tapOn: "Continue"
+
+      # Check popup Submit
+      - assertVisible: SUBMIT
+      - tapOn: Dismiss
+      - tapOn: "Continue"
+      - tapOn: Confirm
+
+      # Nếu hiển thị popup thì tắt đi
+      - runScript: ../ClosePopup/ClosePopup.yaml
+
+      # Màn result Dia (còn button Try again nữa)
+      - tapOn: Next
+
+# 4. Login
+- assertVisible: Log In
+# - runScript: randomChoice.js
+
+# 4.1 Skip login
+- runFlow:
+    when:
+      true: ${output.choice == 0}
+    commands:
+      - tapOn: Skip
+
+# # 4.2 Login
+# - runFlow:
+#     when:
+#       true: ${output.choice == 1}
+#     commands:
+#       - tapOn:
+#           text: ".*Google.*"
+#       - assertVisible: Choose an account
+#       - tapOn:
+#           text: "Abc Tester.*"
+#       - tapOn: Continue
+
+# 5. Reminders
+- assertVisible: |-
+    Would You Like To Set
+    Study Reminders?
+- runScript: randomChoice.js
+# 5.1 không setup
+- runFlow:
+    when:
+      true: ${output.choice == 0}
+    commands:
+      - tapOn: Not Now
+
+# 5.2 Setup
+- runFlow:
+    when:
+      true: ${output.choice == 1}
+    commands:
+      - tapOn: Next
+# # 6. Vào màn Home
+# - tapOn: Start Learning

@@ -1,0 +1,36 @@
+appId: com.sima.asvab
+---
+#  Màn game khi Try again lần 2
+- assertVisible: Try Again
+- tapOn: Try Again
+
+- repeat:
+    times: 3
+    commands:
+      - runScript: ../Daily/randomQuestion.js
+      - scrollUntilVisible:
+          element:
+            text: ".*mst-Answer.*"
+            index: ${output.choice}
+          direction: DOWN
+
+      - tapOn:
+          text: ".*mst-Answer.*"
+          index: ${output.choice}
+
+      # - assertVisible:
+      #      below: "Explanation:"
+
+      - tapOn: "Continue"
+
+# Click icon Submit
+- tapOn: icon-Submit
+- assertVisible: SUBMIT
+- tapOn: Confirm
+
+- runScript: ../ClosePopup/ClosePopup.yaml
+
+# back về tab Tests (button chưa sửa tên)
+- tapOn: mst-Back
+
+- runScript: ../ClosePopup/ClosePopup.yaml

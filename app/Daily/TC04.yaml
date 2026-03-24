@@ -1,0 +1,34 @@
+appId: com.sima.asvab
+---
+# click icon Submit hiển thị popup Submit
+- tapOn: icon-Submit
+- assertVisible: SUBMIT
+- tapOn: Confirm
+
+- runScript: ../ClosePopup/ClosePopup.yaml
+
+# Màn result
+- assertVisible: Review your answers
+- tapOn: Try Again
+# Loop game
+- repeat:
+    # times: 10
+    while:
+      visible: "Next"
+    commands:
+      - runScript: ./randomQuestion.js
+      - scrollUntilVisible:
+          element:
+            text: ".*mst-Answer.*"
+            index: ${output.choice}
+          direction: DOWN
+      - tapOn:
+          text: ".*mst-Answer.*"
+          index: ${output.choice}
+
+      - tapOn: "Next"
+
+- assertVisible: SUBMIT
+- tapOn: Confirm
+
+- runScript: ../ClosePopup/ClosePopup.yaml

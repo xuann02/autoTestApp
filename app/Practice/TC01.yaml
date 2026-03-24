@@ -1,0 +1,21 @@
+appId: com.sima.asvab
+---
+- launchApp
+
+- tapOn: Tests
+# 1. Check hiển thị Practice
+- assertVisible: Practice Tests
+- tapOn: See All
+# 1.1 App chia topic
+- repeat:
+      while:
+          notVisible: "Practice 1.*"
+      commands:
+          - tapOn:
+                below: "Practice Tests     "
+                index: 2
+                optional: true
+
+# 1.2 App không chia topic
+- tapOn:
+      text: "Practice.*"

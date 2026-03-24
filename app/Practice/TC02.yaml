@@ -1,0 +1,54 @@
+appId: com.sima.asvab
+---
+# 2. Màn game
+- repeat:
+    times: 3
+    commands:
+      - runScript: ../Daily/randomQuestion.js
+
+      - scrollUntilVisible:
+          element:
+            text: ".*mst-Answer.*"
+            index: ${output.choice}
+          direction: DOWN
+
+      - tapOn:
+          text: ".*mst-Answer.*"
+          index: ${output.choice}
+
+      # - assertVisible:
+      #     id: mst-Explanation
+
+      - tapOn: "Next"
+
+# Back ra màn topic
+- tapOn: mst-Back
+# Vào lại màn game
+- tapOn:
+    text: "Practice.*"
+
+- repeat:
+    while:
+      notVisible: "Submit"
+    commands:
+      - runScript: ../Daily/randomQuestion.js
+
+      - scrollUntilVisible:
+          element:
+            text: ".*mst-Answer.*"
+            index: ${output.choice}
+          direction: DOWN
+
+      - tapOn:
+          text: ".*mst-Answer.*"
+          index: ${output.choice}
+
+      - assertVisible:
+          id: mst-Explanation
+
+      - tapOn: "Next"
+
+# popup Submit
+- assertVisible: SUBMIT
+- tapOn:
+    text: Dismiss

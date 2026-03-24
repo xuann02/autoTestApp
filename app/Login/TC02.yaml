@@ -1,0 +1,26 @@
+appId: com.sima.asvab
+---
+# Login gg
+- assertVisible: Log In
+
+- assertVisible:
+    text: ".*Google"
+- tapOn:
+    text: ".*Google"
+
+# accout đã có sẵn
+- assertVisible: Choose an account
+- tapOn:
+    id: account_display_name
+
+# tự back về màn Menu
+
+# Logout tài khoản
+- assertVisible:
+    text: ".*Account information"
+
+# Check bảng thông tin ô Logout
+- assertVisible: Log Out
+- tapOn: Log Out.
+# tự back về màn Home
+

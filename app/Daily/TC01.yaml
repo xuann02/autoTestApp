@@ -1,0 +1,7 @@
+appId: com.sima.asvab
+---
+- launchApp
+# Check button Daily + click
+- tapOn: Study
+- assertVisible: Daily Challenge
+- tapOn: Daily Challenge

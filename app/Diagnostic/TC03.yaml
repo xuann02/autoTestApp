@@ -1,0 +1,24 @@
+appId: com.sima.asvab
+---
+- launchApp
+- tapOn: Tests
+# Check trạng thái hiển thi đã làm nhưng chưa Submit
+- tapOn: |-
+    Take our diagnostic test to assess your current level and get a personalized study plan.
+    Continue
+
+# Click icon Submit
+- tapOn: icon-Submit
+- assertVisible: SUBMIT
+- tapOn: Confirm
+
+# close popup
+- runScript: ../ClosePopup/ClosePopup.yaml
+
+# back về tab Tests (button chưa sửa tên)
+- tapOn: mst-Back
+
+# Check trạng thái hiển thị khi đã Submit
+- tapOn: |-
+    Take our diagnostic test to assess your current level and get a personalized study plan.
+    See your latest result

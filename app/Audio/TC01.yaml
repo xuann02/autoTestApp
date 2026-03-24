@@ -1,0 +1,26 @@
+appId: com.sima.asvab
+---
+- launchApp
+# Click vào 1 topic bất kỳ check icon audio
+- tapOn:
+    below: "Daily Challenge"
+    index: 2
+    optional: true
+
+# nếu có Continue → là case topic
+- repeat:
+    while:
+      visible: "Theory"
+    commands:
+      - tapOn:
+          text: Continue
+          optional: true
+
+# Case 2: app dạng Core map (không có topic list)
+- tapOn:
+    text: ".*Core 1"
+    optional: true
+
+- assertVisible: icon-Audio
+- tapOn: icon-Audio
+- assertVisible: Audio Mode

@@ -1,0 +1,26 @@
+appId: com.sima.asvab
+---
+- tapOn: Start
+# 3. Màn game
+- repeat:
+    while:
+      notVisible: "Submit"
+    commands:
+      - runScript: ../Daily/randomQuestion.js
+      - scrollUntilVisible:
+          element:
+            text: ".*mst-Answer.*"
+            index: ${output.choice}
+          direction: DOWN
+      - tapOn:
+          text: ".*mst-Answer.*"
+          index: ${output.choice}
+
+      - tapOn: "Next"
+
+# popup Submit
+- tapOn:
+    text: Dismiss
+
+# Back lại màn Tests
+- tapOn: mst-Back

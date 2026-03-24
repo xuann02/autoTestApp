@@ -1,0 +1,34 @@
+appId: com.sima.asvab
+---
+# 3.1 Click button Continue màn result
+- tapOn: Continue
+- repeat:
+    times: 2
+    commands:
+      - scrollUntilVisible:
+          element:
+            text: ".*mst-Answer-Correct"
+          direction: DOWN
+      - tapOn:
+          text: ".*mst-Answer-Correct"
+
+      - tapOn: "Continue"
+
+- tapOn: mst-Back
+- runScript: ../ClosePopup/ClosePopup.yaml
+
+- assertVisible: Theory
+- tapOn: Continue
+
+- repeat:
+    while:
+      notVisible: "Try Again"
+    commands:
+      - scrollUntilVisible:
+          element:
+            text: ".*mst-Answer-Correct"
+          direction: DOWN
+      - tapOn:
+          text: ".*mst-Answer-Correct"
+
+      - tapOn: "Continue"

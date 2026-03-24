@@ -1,0 +1,21 @@
+appId: com.sima.asvab
+---
+# check click button Previous
+- repeat:
+    while:
+      visible: "Previous"
+    commands:
+      - tapOn: Previous
+
+# click icon Submit hiển thị popup Submit
+- tapOn: icon-Submit
+- assertVisible: SUBMIT
+- tapOn:
+    text: Dismiss
+
+# click icon Back hiển thị popup Submit
+- tapOn: mst-Back
+
+- assertVisible: SUBMIT
+- tapOn:
+    text: Dismiss

@@ -1,0 +1,26 @@
+appId: com.sima.asvab
+---
+- runFlow: app/Onboarding/TC01.yaml
+
+- runFlow: app/Login/login.yaml
+
+- runFlow: app/Daily/dailyChallenge.yaml
+
+- runFlow: app/Study/study.yaml
+
+- runFlow: app/Audio/TC01.yaml
+
+- runFlow: app/Passing/passing.yaml
+
+- runFlow: app/Diagnostic/diagnostic.yaml
+
+- runFlow: app/Practice/practice.yaml
+
+- runFlow: app/Final/final.yaml
+
+- runFlow: app/Custom/custom.yaml
+
+- runFlow: app/Arena/arena.yaml
+
+- runFlow: app/Token/TC01.yaml
+

@@ -1,0 +1,100 @@
+appId: com.sima.asvab
+---
+- launchApp
+- tapOn: Study
+
+# 1. Check hiển thị màn passing
+- tapOn:
+    text: "ASVAB Passing Probability.*"
+
+# 2. button Cancel màn chọn number question game
+- tapOn: Improve Overall Score
+- runFlow:
+    commands:
+      # hiển thị màn mua
+      - assertVisible: Pass For The First Time With
+      - tapOn:
+          point: 0%,5%
+    optional: true
+
+- runFlow:
+    commands:
+      # hiển thị bottom sheet chọn number questions
+      - tapOn: Cancel
+
+      # 3.  button Start màn chọn number question game
+      - tapOn: Improve Overall Score
+      # Default : 20 questions
+      - tapOn: Start
+
+      # 4. Vào màn game
+      - repeat:
+          while:
+            notVisible: "Submit"
+          commands:
+            - runScript: ../Daily/randomQuestion.js
+            - scrollUntilVisible:
+                element:
+                  text: ".*mst-Answer.*"
+                  index: ${output.choice}
+                direction: DOWN
+
+            - tapOn:
+                text: ".*mst-Answer.*"
+                index: ${output.choice}
+            - tapOn: "Next"
+              # popup Submit
+      - assertVisible: SUBMIT
+      - tapOn:
+          text: Dismiss
+          index: 1
+
+      # Check button Previous
+      - repeat:
+          while:
+            visible: "Previous"
+          commands:
+            - tapOn: Previous
+
+      # Check icon Submit
+      - tapOn: icon-Submit
+      - assertVisible: SUBMIT
+      - tapOn: Confirm
+      # Nếu hiển thị popup thì tắt đi
+      - runScript: ../ClosePopup/ClosePopup.yaml
+
+
+      # 5. Màn result passing tổng
+      # 5.1 button Continue game
+      - tapOn: Continue
+      # button Cancel màn chọn number questions game
+      - tapOn: Cancel
+
+      - tapOn: Continue
+      # button Start màn chọn number questions game
+      - tapOn: Start
+
+      - repeat:
+          times: 3
+          commands:
+            - scrollUntilVisible:
+                element:
+                  text: ".*mst-Answer-Correct"
+                direction: DOWN
+            - tapOn:
+                text: ".*mst-Answer-Correct"
+            - tapOn: "Next"
+
+      # Check icon Submit
+      - tapOn: icon-Submit
+      - assertVisible: SUBMIT
+      - tapOn: Confirm
+      # Nếu hiển thị popup thì tắt đi
+      - runScript: ../ClosePopup/ClosePopup.yaml
+      # back về màn Passing tổng
+      - tapOn: mst-Back
+
+      # Nếu hiển thị popup thì tắt đi
+      - runScript: ../ClosePopup/ClosePopup.yaml
+
+    optional: true

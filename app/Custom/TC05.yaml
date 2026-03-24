@@ -1,0 +1,36 @@
+appId: com.sima.asvab
+---
+- launchApp
+- tapOn: Tests
+
+- swipe:
+      direction: UP
+
+- tapOn:
+    text: ".*Custom Test 1.*"
+# check button Try again
+- assertVisible: Try Again
+- tapOn: Try Again
+- repeat:
+    times: 4
+    commands:
+      - runScript: ../Daily/randomQuestion.js
+      - scrollUntilVisible:
+          element:
+            text: ".*mst-Answer.*"
+            index: ${output.choice}
+          direction: DOWN
+      - tapOn:
+          text: ".*mst-Answer.*"
+          index: ${output.choice}
+
+      - tapOn: "Next"
+
+# click icon Submit
+- tapOn: icon-Submit
+# popup Submit
+- assertVisible: SUBMIT
+- tapOn:
+    text: Confirm
+
+- runScript: ../ClosePopup/ClosePopup.yaml

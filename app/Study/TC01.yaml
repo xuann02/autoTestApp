@@ -1,0 +1,37 @@
+appId: com.sima.asvab
+---
+- launchApp
+- tapOn: Study
+
+- runScript: init_topics.js
+- evalScript: ${output.index = 1}
+
+# 1. Check tổng số lượng topic trong app
+- repeat:
+    while:
+      true: ${output.stop != true}
+    commands:
+      - repeat:
+          times: 7
+          commands:
+            # lấy topic trên màn hình
+            - copyTextFrom:
+                below: "Daily challenge"
+                index: ${output.index}
+                optional: true
+            # đưa vào list đã khởi tạo
+            - runScript: collect_topics.js
+            # tăng index
+            - evalScript: ${output.index = output.index + 1}
+
+      - swipe:
+          direction: UP
+          optional: true
+
+      - evalScript: ${output.index = 1}
+      - runScript: check_stop.js
+
+# Scroll lên topic đầu tiên
+- swipe:
+    start: 30%, 50% # Điểm bắt đầu (tính theo % màn hình hoặc pixel)
+    end: 80%, 100%

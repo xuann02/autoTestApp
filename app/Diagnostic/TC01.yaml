@@ -1,0 +1,13 @@
+appId: com.sima.ccna
+---
+- launchApp
+- tapOn: Tests
+#  Check hiển thị Diagnostic khi bắt đầu
+- assertVisible: Diagnostic Test
+- assertVisible: |-
+    Take our diagnostic test to assess your current level and get a personalized study plan.
+    Start
+
+- tapOn: |-
+    Take our diagnostic test to assess your current level and get a personalized study plan.
+    Start

@@ -1,0 +1,14 @@
+appId: com.sima.asvab
+---
+- launchApp
+
+- tapOn: Study
+- assertVisible:
+    id: icon-Menu
+- tapOn:
+    id: icon-Menu
+# Vào màn Login
+- assertVisible:
+    id: mst-Login
+- tapOn:
+    id: mst-Login

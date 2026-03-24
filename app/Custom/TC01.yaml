@@ -1,0 +1,14 @@
+appId: com.sima.asvab
+---
+- launchApp
+- tapOn: Tests
+
+- swipe:
+      direction: UP
+
+# 1. Check hiển thị Custom test
+- assertVisible:
+      text: " Custom Tests.*"
+
+# 2. Tạo custom mới
+- tapOn: Create

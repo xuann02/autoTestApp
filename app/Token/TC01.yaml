@@ -1,0 +1,21 @@
+appId: com.sima.asvab
+---
+- tapOn: Study
+- assertVisible:
+    id: icon-Token
+- tapOn:
+    id: icon-Token
+
+# Check hiển thị các gói
+- assertVisible: |-
+    1-Day Pro
+    25
+- assertVisible: |-
+    2-Day Pro
+    45
+- assertVisible: |-
+    3-Day Pro
+    70
+- assertVisible: |-
+    4-Day Pro
+    95

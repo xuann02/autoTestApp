@@ -1,0 +1,34 @@
+appId: com.sima.asvab
+---
+# 3.2 Click button Try again mản result
+- tapOn: Try Again
+# popup try again
+- tapOn:
+    text: Dismiss
+- tapOn: Try Again
+- tapOn: Confirm
+
+- repeat:
+    while:
+      notVisible: "Try Again"
+    commands:
+      - scrollUntilVisible:
+          element:
+            text: ".*mst-Answer-Correct"
+          direction: DOWN
+      - tapOn:
+          text: ".*mst-Answer-Correct"
+
+      - tapOn: "Continue"
+
+# Nếu hiển thị popup thì tắt đi
+- runScript: ../ClosePopup/ClosePopup.yaml
+
+# back về màn topic
+- tapOn: mst-Back
+
+# Nếu hiển thị popup thì tắt đi
+- runScript: ../ClosePopup/ClosePopup.yaml
+
+# back về màn Home
+- tapOn: mst-Back

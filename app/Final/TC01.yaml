@@ -1,0 +1,12 @@
+appId: com.sima.asvab
+---
+- launchApp
+- tapOn: Tests
+
+- swipe:
+    direction: UP
+# 1. Check Final
+- assertVisible: Final Test
+- assertVisible: 
+    text: "Our final test is the ultimate gauge that assesses your readiness for the actual exam.*"
+    

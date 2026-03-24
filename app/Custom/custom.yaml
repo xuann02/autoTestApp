@@ -1,0 +1,17 @@
+appId: com.sima.asvab
+---
+- runFlow:
+    file: ./TC01.yaml
+    optional: true
+- runFlow:
+    file: ./TC02.yaml
+    optional: true
+- runFlow:
+    file: ./TC03.yaml
+    optional: true
+- runFlow:
+    file: ./TC04.yaml
+    optional: true
+- runFlow:
+    file: ./TC05.yaml
+    optional: true

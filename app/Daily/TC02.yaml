@@ -1,0 +1,28 @@
+appId: com.sima.asvab
+---
+- launchApp
+- tapOn: Daily Challenge
+# Màn game + check button Next
+- repeat:
+    # times: 10
+    while:
+      visible: "Next"
+    commands:
+      - runScript: ./randomQuestion.js
+
+      - scrollUntilVisible:
+          element:
+            text: ".*mst-Answer.*"
+            index: ${output.choice}
+          direction: DOWN
+
+      - tapOn:
+          text: ".*mst-Answer.*"
+          index: ${output.choice}
+
+      - tapOn: "Next"
+
+# tắt popup Submit
+- assertVisible: SUBMIT
+- tapOn:
+    text: Dismiss

@@ -1,0 +1,34 @@
+appId: com.sima.asvab
+---
+- launchApp
+- tapOn: Arena
+
+# check popup Heart
+- assertVisible: Start -1
+- tapOn: Start -1
+
+# màn hướng dẫn
+- assertVisible: Next >>
+- tapOn: Next >>
+- tapOn: Next >>
+- tapOn: Next >>
+- tapOn: Next >>
+- tapOn: Next >>
+
+# màn game
+# 4. Vao man game
+- repeat:
+    while:
+      notVisible: "Question 5"
+    commands:
+      - scrollUntilVisible:
+          element:
+            text: ".*mst-Answer-Correct"
+          direction: DOWN
+      - tapOn:
+          text: ".*mst-Answer-Correct"
+
+      - tapOn: "Next"
+
+- tapOn:
+    text: ".*mst-Answer-Incorrect"

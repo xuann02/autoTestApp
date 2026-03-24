@@ -1,0 +1,115 @@
+appId: com.sima.asvab
+---
+- launchApp
+- tapOn: Study
+# hiển thị màn passing
+- tapOn:
+    text: "ASVAB Passing Probability.*"
+
+#  Check hiển thị màn topic
+# Click 1 topic để vào màn hình topic (app có subtopic)
+- tapOn:
+    below:
+      text: "Passing Probability By Topics"
+      index: 0
+
+# Check hiển thị màn subtopic
+- tapOn:
+    below:
+      text: "Passing Probability By Sub-topics"
+      index: 0
+
+# 1.2 Click để hiển thị màn chọn number question topic
+- runFlow:
+    commands:
+      - assertVisible: Pass For The First Time With
+      - tapOn:
+          point: 0%,5%
+    optional: true
+
+- runFlow:
+    commands:
+      # button Cancel màn chọn number question subtopic
+      - tapOn: Cancel
+      - tapOn:
+          below:
+            text: "Passing Probability By Sub-topics"
+            index: 0
+      # button Start màn chọn number question subtopic
+      - tapOn: Start
+
+      # 2. Màn game
+      - repeat:
+          while:
+            notVisible: "Submit"
+          commands:
+            - runScript: ../Daily/randomQuestion.js
+            - scrollUntilVisible:
+                element:
+                  text: ".*mst-Answer.*"
+                  index: ${output.choice}
+                direction: DOWN
+
+            - tapOn:
+                text: ".*mst-Answer.*"
+                index: ${output.choice}
+            - tapOn: "Next"
+
+      # popup Submit
+      - assertVisible: SUBMIT
+      - tapOn:
+          text: Dismiss
+          index: 1
+
+      # Check button Previous
+      - repeat:
+          while:
+            visible: "Previous"
+          commands:
+            - tapOn: Previous
+
+      # Check icon Submit
+      - tapOn: icon-Submit
+      - assertVisible: SUBMIT
+      - tapOn: Confirm
+      # Nếu hiển thị popup thì tắt đi
+      - runScript: ../ClosePopup/ClosePopup.yaml
+
+      # 3. Màn result
+      # 3.1 button Continue game
+      - tapOn: Continue
+      - tapOn: Cancel # Cancel game
+      - tapOn: Continue
+      - tapOn: Start # Start game
+
+      - repeat:
+          times: 3
+          commands:
+            - scrollUntilVisible:
+                element:
+                  text: ".*mst-Answer-Correct"
+                direction: DOWN
+            - tapOn:
+                text: ".*mst-Answer-Correct"
+            - runFlow: ../Popup/ClosePopup.yaml
+            - tapOn: "Next"
+      # Check icon Submit
+      - tapOn: icon-Submit
+      - assertVisible: SUBMIT
+      - tapOn: Confirm
+      # Nếu hiển thị popup thì tắt đi
+      - runScript: ../ClosePopup/ClosePopup.yaml
+      # 4. back về màn Passing topic
+      - tapOn: mst-Back
+      # Nếu hiển thị popup thì tắt đi
+      - runScript: ../ClosePopup/ClosePopup.yaml
+      # 4.1 back về màn Passing all
+      - tapOn: mst-Back
+      # Nếu hiển thị popup thì tắt đi
+      - runScript: ../ClosePopup/ClosePopup.yaml
+      # 4.2 back về màn home
+      - tapOn: mst-Back
+      # Nếu hiển thị popup thì tắt đi
+      - runScript: ../ClosePopup/ClosePopup.yaml
+
+    optional: true

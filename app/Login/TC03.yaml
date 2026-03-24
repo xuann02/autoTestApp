@@ -1,0 +1,12 @@
+appId: com.sima.asvab
+---
+- launchApp
+# Login apple
+- assertVisible: Log In
+
+- assertVisible:
+    text: "Apple"
+    optional: true
+- tapOn:
+    text: "Apple"
+    optional: true

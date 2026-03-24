@@ -1,0 +1,26 @@
+appId: com.sima.asvab
+---
+- launchApp
+- tapOn: Tests
+
+- swipe:
+    direction: UP
+
+- tapOn:
+    text: ".*Custom Test 1.*"
+
+# Check button Previous
+- repeat:
+    while:
+      visible: "Previous"
+    commands:
+      - tapOn: Previous
+
+# click icon Submit
+- tapOn: icon-Submit
+# popup Submit
+- assertVisible: SUBMIT
+- tapOn:
+    text: Confirm
+# Có popup thì tắt đi
+- runScript: ../ClosePopup/ClosePopup.yaml

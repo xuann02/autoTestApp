@@ -1,0 +1,9 @@
+appId: com.sima.asvab
+---
+- launchApp
+- tapOn: Study
+- assertVisible:
+    text: "ASVAB Passing Probability.*"
+
+- tapOn:
+    text: "ASVAB Passing Probability.*"

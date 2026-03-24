@@ -1,0 +1,10 @@
+appId: com.sima.asvab
+---
+- launchApp
+- tapOn: Daily Challenge
+# back để về màn Home
+- assertVisible: Review your answers
+# button chưa sửa tên
+- tapOn: mst-Back
+
+- runScript: ../ClosePopup/ClosePopup.yaml

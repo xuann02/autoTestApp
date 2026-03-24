@@ -1,0 +1,16 @@
+appId: com.sima.asvab
+---
+# 2.1 Check button Previous
+- repeat:
+    while:
+      visible: "Previous"
+    commands:
+      - tapOn: Previous
+
+# 2.2 Check icon Submit màn game
+- tapOn: icon-Submit
+- assertVisible: SUBMIT
+- tapOn: Confirm
+
+# Nếu hiển thị popup thì tắt đi
+- runScript: ../ClosePopup/ClosePopup.yaml
