@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 # check Button Next Practice
 - assertVisible: Try Again
@@ -13,12 +13,12 @@ appId: com.sima.asvab
 
       - scrollUntilVisible:
           element:
-            text: ".*mst-Answer.*"
+            id: "mst-Answer.*"
             index: ${output.choice}
           direction: DOWN
 
       - tapOn:
-          text: ".*mst-Answer.*"
+          id: "mst-Answer.*"
           index: ${output.choice}
 
       # - assertVisible:

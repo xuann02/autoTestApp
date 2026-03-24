@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 - launchApp
 - tapOn: Daily Challenge
@@ -12,12 +12,12 @@ appId: com.sima.asvab
 
       - scrollUntilVisible:
           element:
-            text: ".*mst-Answer.*"
+            id: "mst-Answer.*"
             index: ${output.choice}
           direction: DOWN
 
       - tapOn:
-          text: ".*mst-Answer.*"
+          id: "mst-Answer.*"
           index: ${output.choice}
 
       - tapOn: "Next"

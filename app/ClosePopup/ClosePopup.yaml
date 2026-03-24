@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 - repeat:
     times: 2
@@ -28,8 +28,6 @@ appId: com.sima.asvab
           text: Keep earning Token
           optional: true
       # 7.
-      - tapOn: 
+      - tapOn:
           text: Continue to app
           optional: true
-          
-

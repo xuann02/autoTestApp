@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 - launchApp
 - tapOn: Arena
@@ -23,12 +23,18 @@ appId: com.sima.asvab
     commands:
       - scrollUntilVisible:
           element:
-            text: ".*mst-Answer-Correct"
+            id: mst-Answer-Correct
           direction: DOWN
       - tapOn:
-          text: ".*mst-Answer-Correct"
+          id: mst-Answer-Correct
 
       - tapOn: "Next"
 
 - tapOn:
-    text: ".*mst-Answer-Incorrect"
+    id: mst-Answer-Incorrect
+# - tapOn:
+#     id: mst-Answer-Incorrect
+#     index: 2
+# - tapOn:
+#     id: mst-Answer-Correct
+

@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 # màn result
 - assertVisible: "Game Over     "
@@ -15,15 +15,15 @@ appId: com.sima.asvab
     commands:
       - scrollUntilVisible:
           element:
-            text: ".*mst-Answer-Correct"
+            id: mst-Answer-Correct
           direction: DOWN
       - tapOn:
-          text: ".*mst-Answer-Correct"
+          id: mst-Answer-Correct
 
       - tapOn: "Next"
 
 - tapOn:
-    text: ".*mst-Answer-Incorrect"
+    id: mst-Answer-Incorrect
 
 - assertVisible: Result
 - tapOn: mst-Back

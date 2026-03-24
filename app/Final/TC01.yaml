@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 - launchApp
 - tapOn: Tests
@@ -7,6 +7,5 @@ appId: com.sima.asvab
     direction: UP
 # 1. Check Final
 - assertVisible: Final Test
-- assertVisible: 
+- assertVisible:
     text: "Our final test is the ultimate gauge that assesses your readiness for the actual exam.*"
-    

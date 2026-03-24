@@ -1,10 +1,10 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 - launchApp
 - tapOn: Tests
 
 - swipe:
-      direction: UP
+    direction: UP
 
 - tapOn:
     text: ".*Custom Test 1.*"
@@ -17,11 +17,11 @@ appId: com.sima.asvab
       - runScript: ../Daily/randomQuestion.js
       - scrollUntilVisible:
           element:
-            text: ".*mst-Answer.*"
+            id: "mst-Answer.*"
             index: ${output.choice}
           direction: DOWN
       - tapOn:
-          text: ".*mst-Answer.*"
+          id: "mst-Answer.*"
           index: ${output.choice}
 
       - tapOn: "Next"

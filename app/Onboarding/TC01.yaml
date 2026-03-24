@@ -1,4 +1,4 @@
-appId: com.sima.ccna
+appId: com.sima.ceh
 ---
 - launchApp:
     clearState: true
@@ -50,12 +50,12 @@ appId: com.sima.ccna
 
             - scrollUntilVisible:
                 element:
-                  text: ".*mst-Answer.*"
+                  id: "mst-Answer.*"
                   index: ${output.choice}
                 direction: DOWN
 
             - tapOn:
-                text: ".*mst-Answer.*"
+                id: "mst-Answer.*"
                 index: ${output.choice}
 
             - tapOn: "Continue"

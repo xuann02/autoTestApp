@@ -1,6 +1,6 @@
 appId: com.sima.asvab
 ---
-- runScript: appAndroid.js
+# - runScript: appAndroid.js
 
 - repeat:
     while:
@@ -15,4 +15,4 @@ appId: com.sima.asvab
 
       - runFlow: appModul.yaml
 
-      - runScript: appAndroid.js
+      # - runScript: appAndroid.js

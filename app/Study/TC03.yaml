@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 # 3.1 Click button Continue màn result
 - tapOn: Continue
@@ -7,10 +7,10 @@ appId: com.sima.asvab
     commands:
       - scrollUntilVisible:
           element:
-            text: ".*mst-Answer-Correct"
+            id: "mst-Answer-Correct"
           direction: DOWN
       - tapOn:
-          text: ".*mst-Answer-Correct"
+          id: "mst-Answer-Correct"
 
       - tapOn: "Continue"
 
@@ -26,9 +26,8 @@ appId: com.sima.asvab
     commands:
       - scrollUntilVisible:
           element:
-            text: ".*mst-Answer-Correct"
+            id: "mst-Answer-Correct"
           direction: DOWN
       - tapOn:
-          text: ".*mst-Answer-Correct"
-
+          id: "mst-Answer-Correct"
       - tapOn: "Continue"

@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 - launchApp
 - tapOn: Tests
@@ -7,18 +7,17 @@ appId: com.sima.asvab
     direction: UP
 # 1. Check Final
 - assertVisible: Final Test
-- tapOn: 
+- tapOn:
     text: "Our final test is the ultimate gauge that assesses your readiness for the actual exam.*"
 # 1.1 App chia topic
 - repeat:
-      while:
-          notVisible: "Final 1.*"
-      commands:
-          - tapOn:
-                below: "Final Tests.*"
-                index: 2
-                optional: true
-
+    while:
+      notVisible: "Final 1.*"
+    commands:
+      - tapOn:
+          below: "Final Tests.*"
+          index: 2
+          optional: true
 
 # 2. Màn game
 - repeat:
@@ -28,11 +27,11 @@ appId: com.sima.asvab
       - runScript: ../Daily/randomQuestion.js
       - scrollUntilVisible:
           element:
-            text: ".*mst-Answer.*"
+            id: "mst-Answer.*"
             index: ${output.choice}
           direction: DOWN
       - tapOn:
-          text: ".*mst-Answer.*"
+          id: "mst-Answer.*"
           index: ${output.choice}
 
       - tapOn: "Next"

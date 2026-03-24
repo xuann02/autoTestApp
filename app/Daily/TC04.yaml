@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 # click icon Submit hiển thị popup Submit
 - tapOn: icon-Submit
@@ -19,11 +19,11 @@ appId: com.sima.asvab
       - runScript: ./randomQuestion.js
       - scrollUntilVisible:
           element:
-            text: ".*mst-Answer.*"
+            id: "mst-Answer.*"
             index: ${output.choice}
           direction: DOWN
       - tapOn:
-          text: ".*mst-Answer.*"
+          id: "mst-Answer.*"
           index: ${output.choice}
 
       - tapOn: "Next"

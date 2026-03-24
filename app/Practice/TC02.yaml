@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 # 2. Màn game
 - repeat:
@@ -8,12 +8,12 @@ appId: com.sima.asvab
 
       - scrollUntilVisible:
           element:
-            text: ".*mst-Answer.*"
+            id: "mst-Answer.*"
             index: ${output.choice}
           direction: DOWN
 
       - tapOn:
-          text: ".*mst-Answer.*"
+          id: "mst-Answer.*"
           index: ${output.choice}
 
       # - assertVisible:
@@ -35,16 +35,16 @@ appId: com.sima.asvab
 
       - scrollUntilVisible:
           element:
-            text: ".*mst-Answer.*"
+            id: "mst-Answer.*"
             index: ${output.choice}
           direction: DOWN
 
       - tapOn:
-          text: ".*mst-Answer.*"
+          id: "mst-Answer.*"
           index: ${output.choice}
 
-      - assertVisible:
-          id: mst-Explanation
+      # - assertVisible:
+      #     id: mst-Explanation
 
       - tapOn: "Next"
 

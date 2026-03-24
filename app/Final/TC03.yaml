@@ -1,28 +1,27 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 # back lại màn Tests
 - tapOn: mst-Back
 - repeat:
-      while:
-          visible: "Final Tests"
-      commands:
-          - tapOn:
-                text: "mst-Back"
-                optional: true
-
+    while:
+      visible: "Final Tests"
+    commands:
+      - tapOn:
+          text: "mst-Back"
+          optional: true
 
 # Check hiển thị Final test khi chưa Submit
-- tapOn: 
+- tapOn:
     text: "Our final test is the ultimate gauge that assesses your readiness for the actual exam.*"
 
 - repeat:
-      while:
-          visible: "Final Tests"
-      commands:
-          - tapOn:
-                below: "Final Tests.*"
-                index: 2
-                optional: true
+    while:
+      visible: "Final Tests"
+    commands:
+      - tapOn:
+          below: "Final Tests.*"
+          index: 2
+          optional: true
 
 # click icon Submit
 - tapOn: icon-Submit
@@ -36,26 +35,25 @@ appId: com.sima.asvab
 # back về tab Tests
 - tapOn: mst-Back
 - repeat:
-      while:
-          visible: "Final Tests"
-      commands:
-          - tapOn:
-                text: "mst-Back"
-                optional: true
-                
+    while:
+      visible: "Final Tests"
+    commands:
+      - tapOn:
+          text: "mst-Back"
+          optional: true
+
 # Có popup thì tắt đi
 - runScript: ../ClosePopup/ClosePopup.yaml
 
-
 #Check hiển thị Final test khi đã Submit
-- tapOn: 
+- tapOn:
     text: "Our final test is the ultimate gauge that assesses your readiness for the actual exam.*"
 
 - repeat:
-      while:
-          visible: "Final Tests"
-      commands:
-          - tapOn:
-                below: "Final Tests.*"
-                index: 2
-                optional: true
+    while:
+      visible: "Final Tests"
+    commands:
+      - tapOn:
+          below: "Final Tests.*"
+          index: 2
+          optional: true

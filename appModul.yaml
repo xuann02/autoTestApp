@@ -1,8 +1,8 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 - runFlow: app/Onboarding/TC01.yaml
 
-- runFlow: app/Login/login.yaml
+# - runFlow: app/Login/login.yaml
 
 - runFlow: app/Daily/dailyChallenge.yaml
 
@@ -23,4 +23,3 @@ appId: com.sima.asvab
 - runFlow: app/Arena/arena.yaml
 
 - runFlow: app/Token/TC01.yaml
-

@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 - launchApp
 - tapOn: Study
@@ -35,12 +35,12 @@ appId: com.sima.asvab
             - runScript: ../Daily/randomQuestion.js
             - scrollUntilVisible:
                 element:
-                  text: ".*mst-Answer.*"
+                  id: "mst-Answer.*"
                   index: ${output.choice}
                 direction: DOWN
 
             - tapOn:
-                text: ".*mst-Answer.*"
+                id: "mst-Answer.*"
                 index: ${output.choice}
             - tapOn: "Next"
               # popup Submit
@@ -63,7 +63,6 @@ appId: com.sima.asvab
       # Nếu hiển thị popup thì tắt đi
       - runScript: ../ClosePopup/ClosePopup.yaml
 
-
       # 5. Màn result passing tổng
       # 5.1 button Continue game
       - tapOn: Continue
@@ -79,10 +78,10 @@ appId: com.sima.asvab
           commands:
             - scrollUntilVisible:
                 element:
-                  text: ".*mst-Answer-Correct"
+                  id: "mst-Answer-Correct"
                 direction: DOWN
             - tapOn:
-                text: ".*mst-Answer-Correct"
+                id: "mst-Answer-Correct"
             - tapOn: "Next"
 
       # Check icon Submit

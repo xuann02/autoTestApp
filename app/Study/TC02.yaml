@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 - launchApp
 - tapOn: Study
@@ -30,10 +30,10 @@ appId: com.sima.asvab
     commands:
       - scrollUntilVisible:
           element:
-            text: ".*mst-Answer-Correct"
+            id: "mst-Answer-Correct"
           direction: DOWN
       - tapOn:
-          text: ".*mst-Answer-Correct"
+          id: "mst-Answer-Correct"
 
       - tapOn: "Continue"
 

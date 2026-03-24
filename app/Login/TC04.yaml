@@ -1,21 +1,20 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 - launchApp
 - tapOn: Study
 - assertVisible:
     id: icon-Menu
-- tapOn: 
+- tapOn:
     id: icon-Menu
-# Vào màn Login 
-- assertVisible: 
+# Vào màn Login
+- assertVisible:
     id: mst-Login
-- tapOn: 
+- tapOn:
     id: mst-Login
 
 # login verify code
 # - tapOn: Please type your email address!
 # - inputText: "testerabc48@gmail.com"
 - tapOn: Request Code
-
 # - inputText: ${OTP}
 # - tapOn: Submit

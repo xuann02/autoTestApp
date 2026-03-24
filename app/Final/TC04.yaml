@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: com.sima.ceh
 ---
 # click button Try again
 - assertVisible: Try Again
@@ -10,11 +10,11 @@ appId: com.sima.asvab
       - runScript: ../Daily/randomQuestion.js
       - scrollUntilVisible:
           element:
-            text: ".*mst-Answer.*"
+            id: "mst-Answer.*"
             index: ${output.choice}
           direction: DOWN
       - tapOn:
-          text: ".*mst-Answer.*"
+          id: "mst-Answer.*"
           index: ${output.choice}
 
       - tapOn: "Next"
@@ -34,11 +34,11 @@ appId: com.sima.asvab
 - runScript: ../ClosePopup/ClosePopup.yaml
 
 - repeat:
-      while:
-          visible: "Final Tests"
-      commands:
-          - tapOn:
-                text: "mst-Back"
-                optional: true
+    while:
+      visible: "Final Tests"
+    commands:
+      - tapOn:
+          text: "mst-Back"
+          optional: true
 
 - runScript: ../ClosePopup/ClosePopup.yaml
