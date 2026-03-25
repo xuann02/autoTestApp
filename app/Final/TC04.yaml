@@ -1,32 +1,65 @@
 appId: com.sima.asvab
 ---
+- launchApp
+- tapOn: Tests
+
+- swipe:
+    direction: UP
+#Check hiển thị Final test khi đã Submit
+- tapOn:
+    text: "Our final test is the ultimate gauge that assesses your readiness for the actual exam.*"
+
+- repeat:
+    while:
+      visible: "Final Tests"
+    commands:
+      - tapOn:
+          below: "Final Tests.*"
+          index: 2
+          optional: true
+
 # click button Try again
 - assertVisible: Try Again
 - tapOn: Try Again
 
-- repeat:
-    times: 5
-    commands:
-      - runScript: ../Daily/randomQuestion.js
-      - scrollUntilVisible:
-          element:
-            id: "mst-Answer.*"
-            index: ${output.choice}
-          direction: DOWN
-      - tapOn:
-          id: "mst-Answer.*"
-          index: ${output.choice}
+- runFlow:
+          commands:
+            # hiển thị màn mua
+            - assertVisible: Pass For The First Time With
+            - tapOn:
+                point: 0%,6%
+          optional: true
+- runFlow:
+          commands:
+            - tapOn:
+                text: "Start"
+                optional: true
+            - repeat:
+                times: 5
+                commands:
+                  - runScript: ../Daily/randomQuestion.js
+                  - scrollUntilVisible:
+                      element:
+                        id: "mst-Answer.*"
+                        index: ${output.choice}
+                      direction: DOWN
+                  - tapOn:
+                      id: "mst-Answer.*"
+                      index: ${output.choice}
 
-      - tapOn: "Next"
+                  - tapOn: "Next"
+                  - tapOn:
+                      text: "Start"
+                      optional: true
 
-# click icon Submit
-- tapOn: icon-Submit
-# popup Submit
-- assertVisible: SUBMIT
-- tapOn:
-    text: Confirm
+            # click icon Submit
+            - tapOn: icon-Submit
+            # popup Submit
+            - assertVisible: SUBMIT
+            - tapOn:
+                text: Confirm
 
-- runFlow: ../ClosePopup/ClosePopup.yaml
+            - runFlow: ../ClosePopup/ClosePopup.yaml
 
 # back về tab Tests
 - tapOn: mst-Back
@@ -34,11 +67,11 @@ appId: com.sima.asvab
 - runFlow: ../ClosePopup/ClosePopup.yaml
 
 - repeat:
-    while:
-      visible: "Final Tests"
-    commands:
-      - tapOn:
-          text: "mst-Back"
-          optional: true
+          while:
+              visible: "Final Tests"
+          commands:
+              - tapOn:
+                  text: "mst-Back"
+                  optional: true
 
 - runFlow: ../ClosePopup/ClosePopup.yaml

@@ -12,7 +12,7 @@ appId: com.sima.asvab
 # 1.1 App chia topic
 - repeat:
     while:
-      notVisible: "Final 1.*"
+      visible: "Final Tests"
     commands:
       - tapOn:
           below: "Final Tests.*"
@@ -23,24 +23,47 @@ appId: com.sima.asvab
           text: "Start"
           optional: true
 
-# 2. Màn game
-- repeat:
-    while:
-      notVisible: "Submit"
+- runFlow:
     commands:
-      - runScript: ../Daily/randomQuestion.js
-      - scrollUntilVisible:
-          element:
-            id: "mst-Answer.*"
-            index: ${output.choice}
-          direction: DOWN
+      # hiển thị màn mua
+      - assertVisible: Pass For The First Time With
       - tapOn:
-          id: "mst-Answer.*"
-          index: ${output.choice}
+          point: 0%,6%
+    optional: true
+# 2. Màn game
+- runFlow:
+    commands:
+        - repeat:
+            while:
+              notVisible: "Submit"
+            commands:
+              - runScript: ../Daily/randomQuestion.js
+              - scrollUntilVisible:
+                  element:
+                    id: "mst-Answer.*"
+                    index: ${output.choice}
+                  direction: DOWN
+              - tapOn:
+                  id: "mst-Answer.*"
+                  index: ${output.choice}
 
-      - tapOn: "Next"
+              - tapOn: "Next"
+              - tapOn:
+                  text: "Start"
+                  optional: true
 
-# popup Submit
-- assertVisible: SUBMIT
-- tapOn:
-    text: Dismiss
+        # popup Submit
+        - assertVisible: SUBMIT
+        - tapOn:
+            text: Dismiss
+    
+        # back lại màn Tests
+        - tapOn: mst-Back
+        - repeat:
+            while:
+              visible: "Final Tests"
+            commands:
+              - tapOn:
+                  text: "mst-Back"
+                  optional: true
+    optional: true

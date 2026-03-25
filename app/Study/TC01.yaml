@@ -2,6 +2,10 @@ appId: com.sima.asvab
 ---
 - launchApp
 - tapOn: Study
+# Scroll lên topic đầu tiên
+- swipe:
+    start: 30%, 50% # Điểm bắt đầu (tính theo % màn hình hoặc pixel)
+    end: 80%, 100%
 
 - runScript: init_topics.js
 - evalScript: ${output.index = 1}

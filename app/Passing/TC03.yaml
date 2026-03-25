@@ -23,7 +23,7 @@ appId: com.sima.asvab
     commands:
       - assertVisible: Pass For The First Time With
       - tapOn:
-          point: 0%,5%
+          point: 0%,6%
     optional: true
 
 - runFlow:

@@ -26,62 +26,64 @@ appId: com.sima.asvab
 
 # 3. Diagnostic
 - assertVisible: Diagnostic Test
-- runScript: randomChoice.js
+- tapOn: Not Now
+# - runScript: randomChoice.js
 
 # 3.1 Không làm Dia
-- runFlow:
-    when:
-      true: ${output.choice == 0}
-    commands:
-      - tapOn: Not Now
+# - runFlow:
+#     when:
+#       true: ${output.choice == 0}
+#     commands:
+#       - tapOn: Not Now
 
-# 3.2 Làm Dia
-- runFlow:
-    when:
-      true: ${output.choice == 1}
-    commands:
-      - tapOn: Start Diagnostic Test
-      # Vào màn game
-      - repeat:
-          while:
-            visible: "Continue"
-          commands:
-            - runScript: ../Daily/randomQuestion.js
+# # 3.2 Làm Dia
+# - runFlow:
+#     when:
+#       true: ${output.choice == 1}
+#     commands:
+#       - tapOn: Start Diagnostic Test
+#       # Vào màn game
+#       - repeat:
+#           while:
+#             visible: "Continue"
+#           commands:
+#             - runScript: ../Daily/randomQuestion.js
 
-            - scrollUntilVisible:
-                element:
-                  id: "mst-Answer.*"
-                  index: ${output.choice}
-                direction: DOWN
+#             - scrollUntilVisible:
+#                 element:
+#                   id: "mst-Answer.*"
+#                   index: ${output.choice}
+#                 direction: DOWN
 
-            - tapOn:
-                id: "mst-Answer.*"
-                index: ${output.choice}
+#             - tapOn:
+#                 id: "mst-Answer.*"
+#                 index: ${output.choice}
 
-            - tapOn: "Continue"
+#             - tapOn: "Continue"
 
-      # Check popup Submit
-      - assertVisible: SUBMIT
-      - tapOn: Dismiss
-      - tapOn: "Continue"
-      - tapOn: Confirm
+#       # Check popup Submit
+#       - assertVisible: SUBMIT
+#       - tapOn: Dismiss
+#       - tapOn: "Continue"
+#       - tapOn: Confirm
 
-      # Nếu hiển thị popup thì tắt đi
-      - runFlow: ../ClosePopup/ClosePopup.yaml
+#       # Nếu hiển thị popup thì tắt đi
+#       - runFlow: ../ClosePopup/ClosePopup.yaml
 
-      # Màn result Dia (còn button Try again nữa)
-      - tapOn: Next
+#       # Màn result Dia (còn button Try again nữa)
+#       - tapOn: Next
 
 # 4. Login
 - assertVisible: Log In
+- tapOn: Skip
 # - runScript: randomChoice.js
 
 # 4.1 Skip login
-- runFlow:
-    when:
-      true: ${output.choice == 0}
-    commands:
-      - tapOn: Skip
+# - runFlow:
+#     when:
+#       true: ${output.choice == 0}
+#     commands:
+#       - tapOn: Skip
 
 # # 4.2 Login
 # - runFlow:
@@ -114,4 +116,6 @@ appId: com.sima.asvab
     commands:
       - tapOn: Next
 # # 6. Vào màn Home
-# - tapOn: Start Learning
+- tapOn:
+    text: Start Learning
+    optional: true
