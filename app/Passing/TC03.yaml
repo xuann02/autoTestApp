@@ -1,4 +1,4 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 - launchApp
 - tapOn: Study
@@ -72,7 +72,7 @@ appId: com.sima.ceh
       - tapOn: icon-Submit
       - tapOn: Confirm
       # Nếu hiển thị popup thì tắt đi
-      - runScript: ../ClosePopup/ClosePopup.yaml
+      - runFlow: ../ClosePopup/ClosePopup.yaml
 
       # 3. Màn result
       # 3.1 button Continue game
@@ -95,12 +95,12 @@ appId: com.sima.ceh
       - tapOn: icon-Submit
       - tapOn: Confirm
       # Nếu hiển thị popup thì tắt đi
-      - runScript: ../ClosePopup/ClosePopup.yaml
+      - runFlow: ../ClosePopup/ClosePopup.yaml
 
       # 4. back về màn topic (với app có subtopic)
       - tapOn: mst-Back
 
       # Nếu hiển thị popup thì tắt đi
-      - runScript: ../ClosePopup/ClosePopup.yaml
+      - runFlow: ../ClosePopup/ClosePopup.yaml
 
     optional: true

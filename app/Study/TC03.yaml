@@ -1,4 +1,4 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 # 3.1 Click button Continue màn result
 - tapOn: Continue
@@ -15,7 +15,7 @@ appId: com.sima.ceh
       - tapOn: "Continue"
 
 - tapOn: mst-Back
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml
 
 - assertVisible: Theory
 - tapOn: Continue

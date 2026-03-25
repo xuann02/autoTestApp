@@ -1,4 +1,4 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 - launchApp:
     clearState: true
@@ -67,7 +67,7 @@ appId: com.sima.ceh
       - tapOn: Confirm
 
       # Nếu hiển thị popup thì tắt đi
-      - runScript: ../ClosePopup/ClosePopup.yaml
+      - runFlow: ../ClosePopup/ClosePopup.yaml
 
       # Màn result Dia (còn button Try again nữa)
       - tapOn: Next

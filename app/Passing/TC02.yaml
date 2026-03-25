@@ -1,4 +1,4 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 - launchApp
 - tapOn: Study
@@ -61,7 +61,7 @@ appId: com.sima.ceh
       - assertVisible: SUBMIT
       - tapOn: Confirm
       # Nếu hiển thị popup thì tắt đi
-      - runScript: ../ClosePopup/ClosePopup.yaml
+      - runFlow: ../ClosePopup/ClosePopup.yaml
 
       # 5. Màn result passing tổng
       # 5.1 button Continue game
@@ -89,11 +89,11 @@ appId: com.sima.ceh
       - assertVisible: SUBMIT
       - tapOn: Confirm
       # Nếu hiển thị popup thì tắt đi
-      - runScript: ../ClosePopup/ClosePopup.yaml
+      - runFlow: ../ClosePopup/ClosePopup.yaml
       # back về màn Passing tổng
       - tapOn: mst-Back
 
       # Nếu hiển thị popup thì tắt đi
-      - runScript: ../ClosePopup/ClosePopup.yaml
+      - runFlow: ../ClosePopup/ClosePopup.yaml
 
     optional: true

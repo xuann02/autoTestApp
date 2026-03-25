@@ -1,4 +1,4 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 # back lại màn Tests
 - tapOn: mst-Back
@@ -22,6 +22,9 @@ appId: com.sima.ceh
           below: "Final Tests.*"
           index: 2
           optional: true
+      - tapOn:
+          text: "Start"
+          optional: true
 
 # click icon Submit
 - tapOn: icon-Submit
@@ -30,10 +33,11 @@ appId: com.sima.ceh
 - tapOn:
     text: Confirm
 
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml
 
 # back về tab Tests
 - tapOn: mst-Back
+- runFlow: ../ClosePopup/ClosePopup.yaml
 - repeat:
     while:
       visible: "Final Tests"
@@ -43,7 +47,7 @@ appId: com.sima.ceh
           optional: true
 
 # Có popup thì tắt đi
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml
 
 #Check hiển thị Final test khi đã Submit
 - tapOn:
@@ -56,4 +60,7 @@ appId: com.sima.ceh
       - tapOn:
           below: "Final Tests.*"
           index: 2
+          optional: true
+      - tapOn:
+          text: "Start"
           optional: true

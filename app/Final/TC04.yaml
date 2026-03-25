@@ -1,4 +1,4 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 # click button Try again
 - assertVisible: Try Again
@@ -26,12 +26,12 @@ appId: com.sima.ceh
 - tapOn:
     text: Confirm
 
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml
 
 # back về tab Tests
 - tapOn: mst-Back
 
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml
 
 - repeat:
     while:
@@ -41,4 +41,4 @@ appId: com.sima.ceh
           text: "mst-Back"
           optional: true
 
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml

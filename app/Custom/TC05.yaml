@@ -1,4 +1,4 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 - launchApp
 - tapOn: Tests
@@ -32,5 +32,4 @@ appId: com.sima.ceh
 - assertVisible: SUBMIT
 - tapOn:
     text: Confirm
-
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml

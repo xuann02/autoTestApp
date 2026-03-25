@@ -1,4 +1,4 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 # 3.2 Click button Try again mản result
 - tapOn: Try Again
@@ -22,13 +22,13 @@ appId: com.sima.ceh
       - tapOn: "Continue"
 
 # Nếu hiển thị popup thì tắt đi
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml
 
 # back về màn topic
 - tapOn: mst-Back
 
 # Nếu hiển thị popup thì tắt đi
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml
 
 # back về màn Home
 - tapOn: mst-Back

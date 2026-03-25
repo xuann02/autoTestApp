@@ -1,4 +1,4 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 # check Button Next Practice
 - assertVisible: Try Again
@@ -31,4 +31,4 @@ appId: com.sima.ceh
 - tapOn: Confirm
 
 # Nếu hiển thị popup thì tắt đi
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml

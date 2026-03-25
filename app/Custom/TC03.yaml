@@ -1,4 +1,4 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 - launchApp
 - tapOn: Tests
@@ -23,4 +23,4 @@ appId: com.sima.ceh
 - tapOn:
     text: Confirm
 # Có popup thì tắt đi
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml

@@ -1,33 +1,26 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 - repeat:
     times: 2
     commands:
-      # 1. Popup Token
       - tapOn:
-          text: Not now
+          text: "Not now"
           optional: true
-      # 2. Popup ratting app + Badge
       - tapOn:
-          text: Scrim
+          text: "Scrim"
           optional: true
-      # 3. Popup Ads
       - tapOn:
           text: ".*Close.*"
           optional: true
-      # 4. Popup video
       - tapOn:
           text: ".*Skip video.*"
           optional: true
-      # 5. Ads
       - tapOn:
-          id: close-button
+          id: "close-button"
           optional: true
-      # 6. pro
       - tapOn:
-          text: Keep earning Token
+          text: "Keep earning Token"
           optional: true
-      # 7.
       - tapOn:
-          text: Continue to app
+          text: "Continue to app"
           optional: true

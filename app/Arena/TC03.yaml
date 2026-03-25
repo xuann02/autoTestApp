@@ -1,4 +1,4 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 # màn result
 - assertVisible: "Game Over     "
@@ -28,4 +28,4 @@ appId: com.sima.ceh
 - assertVisible: Result
 - tapOn: mst-Back
 # Nếu hiển thị popup thì tắt đi
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml

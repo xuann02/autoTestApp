@@ -1,11 +1,11 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 # click icon Submit hiển thị popup Submit
 - tapOn: icon-Submit
 - assertVisible: SUBMIT
 - tapOn: Confirm
 
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml
 
 # Màn result
 - assertVisible: Review your answers
@@ -31,4 +31,4 @@ appId: com.sima.ceh
 - assertVisible: SUBMIT
 - tapOn: Confirm
 
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml

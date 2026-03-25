@@ -1,4 +1,4 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 - launchApp
 - tapOn: Tests
@@ -17,6 +17,10 @@ appId: com.sima.ceh
       - tapOn:
           below: "Final Tests.*"
           index: 2
+          optional: true
+
+      - tapOn:
+          text: "Start"
           optional: true
 
 # 2. Màn game

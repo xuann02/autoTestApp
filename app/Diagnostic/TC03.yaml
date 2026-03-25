@@ -1,4 +1,4 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 - launchApp
 - tapOn: Tests
@@ -13,7 +13,7 @@ appId: com.sima.ceh
 - tapOn: Confirm
 
 # close popup
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml
 
 # back về tab Tests (button chưa sửa tên)
 - tapOn: mst-Back

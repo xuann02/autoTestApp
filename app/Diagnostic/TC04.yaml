@@ -1,4 +1,4 @@
-appId: com.sima.ceh
+appId: com.sima.asvab
 ---
 #  Màn game khi Try again lần 2
 - assertVisible: Try Again
@@ -28,9 +28,9 @@ appId: com.sima.ceh
 - assertVisible: SUBMIT
 - tapOn: Confirm
 
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml
 
 # back về tab Tests (button chưa sửa tên)
 - tapOn: mst-Back
 
-- runScript: ../ClosePopup/ClosePopup.yaml
+- runFlow: ../ClosePopup/ClosePopup.yaml
