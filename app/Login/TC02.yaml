@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: ${output.appId}
 ---
 # Login gg
 - assertVisible: Log In

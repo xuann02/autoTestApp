@@ -1,4 +1,5 @@
 appId: com.sima.asvab
+# appId: ${APP_ID}
 ---
 - runFlow: app/Onboarding/TC01.yaml
 

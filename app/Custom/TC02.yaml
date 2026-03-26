@@ -1,26 +1,48 @@
-appId: com.sima.asvab
+appId: ${output.appId}
 ---
+- launchApp
+- tapOn: Tests
+
+- swipe:
+      direction: UP
+
+# 1. Check hiển thị Custom test
+- assertVisible:
+      text: " Custom Tests.*"
+
+# 2. Tạo custom mới
+- tapOn: Create
 - tapOn: Start
-# 3. Màn game
-- repeat:
-    while:
-      notVisible: "Submit"
+
+- runFlow:
     commands:
-      - runScript: ../Daily/randomQuestion.js
-      - scrollUntilVisible:
-          element:
-            id: "mst-Answer.*"
-            index: ${output.choice}
-          direction: DOWN
+      # hiển thị màn mua
+      - assertVisible: Pass For The First Time With
+      - tapOn: mst-Close
+    optional: true
+
+- runFlow:
+    commands:
+      # 3. Màn game
+      - repeat:
+          while:
+            notVisible: "Submit"
+          commands:
+            - runScript: ../Daily/randomQuestion.js
+            - scrollUntilVisible:
+                element:
+                  id: "mst-Answer.*"
+                  index: ${output.choice}
+                direction: DOWN
+            - tapOn:
+                id: "mst-Answer.*"
+                index: ${output.choice}
+
+            - tapOn: "Next"
+
+      # popup Submit
       - tapOn:
-          id: "mst-Answer.*"
-          index: ${output.choice}
+          text: Dismiss
 
-      - tapOn: "Next"
-
-# popup Submit
-- tapOn:
-    text: Dismiss
-
-# Back lại màn Tests
-- tapOn: mst-Back
+      # Back lại màn Tests
+      - tapOn: mst-Back

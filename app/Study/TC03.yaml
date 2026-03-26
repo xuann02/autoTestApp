@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: ${output.appId}
 ---
 # 3.1 Click button Continue màn result
 - tapOn: Continue

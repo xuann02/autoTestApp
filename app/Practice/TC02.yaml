@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: ${output.appId}
 ---
 # 2. Màn game
 - repeat:

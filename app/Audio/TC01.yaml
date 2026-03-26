@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: ${output.appId}
 ---
 - launchApp
 # Click vào 1 topic bất kỳ check icon audio

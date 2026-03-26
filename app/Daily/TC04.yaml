@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: ${output.appId}
 ---
 # click icon Submit hiển thị popup Submit
 - tapOn: icon-Submit

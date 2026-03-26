@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: ${output.appId}
 ---
 - launchApp
 - tapOn: Tests
@@ -27,43 +27,42 @@ appId: com.sima.asvab
     commands:
       # hiển thị màn mua
       - assertVisible: Pass For The First Time With
-      - tapOn:
-          point: 0%,6%
+      - tapOn: mst-Close
     optional: true
 # 2. Màn game
 - runFlow:
     commands:
-        - repeat:
-            while:
-              notVisible: "Submit"
-            commands:
-              - runScript: ../Daily/randomQuestion.js
-              - scrollUntilVisible:
-                  element:
-                    id: "mst-Answer.*"
-                    index: ${output.choice}
-                  direction: DOWN
-              - tapOn:
+      - repeat:
+          while:
+            notVisible: "Submit"
+          commands:
+            - runScript: ../Daily/randomQuestion.js
+            - scrollUntilVisible:
+                element:
                   id: "mst-Answer.*"
                   index: ${output.choice}
+                direction: DOWN
+            - tapOn:
+                id: "mst-Answer.*"
+                index: ${output.choice}
 
-              - tapOn: "Next"
-              - tapOn:
-                  text: "Start"
-                  optional: true
+            - tapOn: "Next"
+            - tapOn:
+                text: "Start"
+                optional: true
 
-        # popup Submit
-        - assertVisible: SUBMIT
-        - tapOn:
-            text: Dismiss
-    
-        # back lại màn Tests
-        - tapOn: mst-Back
-        - repeat:
-            while:
-              visible: "Final Tests"
-            commands:
-              - tapOn:
-                  text: "mst-Back"
-                  optional: true
+      # popup Submit
+      - assertVisible: SUBMIT
+      - tapOn:
+          text: Dismiss
+
+      # back lại màn Tests
+      - tapOn: mst-Back
+      - repeat:
+          while:
+            visible: "Final Tests"
+          commands:
+            - tapOn:
+                text: "mst-Back"
+                optional: true
     optional: true

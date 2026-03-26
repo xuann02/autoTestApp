@@ -1,18 +1,18 @@
 appId: com.sima.asvab
 ---
-# - runScript: appAndroid.js
+- runScript: appAndroid.js
 
 - repeat:
     while:
       true: ${output.done != true}
     commands:
-      - stopApp
-      - clearState
+      # - stopApp: ${output.appId}
+      - clearState: ${output.appId}
 
       - launchApp:
           appId: ${output.appId}
-          clearState: true
+          # clearState: true
 
       - runFlow: appModul.yaml
 
-      # - runScript: appAndroid.js
+      - runScript: appAndroid.js

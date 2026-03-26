@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: ${output.appId}
 ---
 - launchApp
 - tapOn: Study
@@ -22,8 +22,7 @@ appId: com.sima.asvab
 - runFlow:
     commands:
       - assertVisible: Pass For The First Time With
-      - tapOn:
-          point: 0%,6%
+      - tapOn: mst-Close
     optional: true
 
 - runFlow:

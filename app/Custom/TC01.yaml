@@ -1,4 +1,4 @@
-appId: com.sima.asvab
+appId: ${output.appId}
 ---
 - launchApp
 - tapOn: Tests
@@ -10,5 +10,4 @@ appId: com.sima.asvab
 - assertVisible:
       text: " Custom Tests.*"
 
-# 2. Tạo custom mới
-- tapOn: Create
+
