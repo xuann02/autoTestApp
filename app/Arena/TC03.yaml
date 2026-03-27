@@ -17,8 +17,13 @@ appId: ${output.appId}
           element:
             id: mst-Answer-Correct
           direction: DOWN
-      - tapOn:
-          id: mst-Answer-Correct
+      - repeat:
+                while:
+                  visible:
+                    id: "mst-Answer-Correct"
+                commands:
+                  - tapOn:
+                      id: "mst-Answer-Correct"
 
       - tapOn: "Next"
 
