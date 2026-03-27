@@ -4,7 +4,7 @@ appId: ${output.appId}
 - tapOn: Study
 # hiển thị màn passing
 - tapOn:
-    text: "ASVAB Passing Probability.*"
+    text: ".*Passing Probability.*"
 
 #  Check hiển thị màn topic
 # 1.1 Click 1 topic để vào màn hình topic (app có subtopic)
@@ -134,8 +134,8 @@ appId: ${output.appId}
                 direction: DOWN
             - repeat:
                 while:
-                  visible:
-                    id: "mst-Answer-Correct"
+                  notVisible:
+                      text: "Explanation:"
                 commands:
                   - tapOn:
                       id: "mst-Answer-Correct"

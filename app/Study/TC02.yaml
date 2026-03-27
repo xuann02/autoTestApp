@@ -34,8 +34,8 @@ appId: ${output.appId}
           direction: DOWN
       - repeat:
           while:
-            visible:
-              id: "mst-Answer-Correct"
+            notVisible:
+              text: "Explanation:"
           commands:
             - tapOn:
                 id: "mst-Answer-Correct"
