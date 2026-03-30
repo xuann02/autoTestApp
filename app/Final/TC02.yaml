@@ -33,8 +33,9 @@ appId: ${output.appId}
 - runFlow:
     commands:
       - repeat:
-          while:
-            notVisible: "Submit"
+          times: 10
+          # while:
+          #   notVisible: "Submit"
           commands:
             #  1. Scroll đảm bảo load answer
             - scrollUntilVisible:
@@ -98,6 +99,7 @@ appId: ${output.appId}
                 optional: true
 
       # popup Submit
+      - tapOn: icon-Submit
       - assertVisible: SUBMIT
       - tapOn:
           text: Dismiss

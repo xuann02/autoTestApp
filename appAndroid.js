@@ -1,5 +1,5 @@
 const apps = [
-  "com.sima.cfa",
+  // "com.sima.cfa",
   "com.sima.ccna",
   "com.sima.ceh",
   "org.sima.g1test",

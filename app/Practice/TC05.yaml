@@ -8,65 +8,65 @@ appId: ${output.appId}
     times: 3
     commands:
       #  1. Scroll đảm bảo load answer
-            - scrollUntilVisible:
-                element:
-                  id: "mst-Answer.*"
-                  index: 0
-                direction: DOWN
+      - scrollUntilVisible:
+          element:
+            id: "mst-Answer.*"
+            index: 0
+          direction: DOWN
 
-            # 2. Đếm số đáp án (max = 7)
-            - evalScript: ${output.total = 0}
+      # 2. Đếm số đáp án (max = 7)
+      - evalScript: ${output.total = 0}
 
-            - repeat:
-                times: 7
-                commands:
-                  - runFlow:
-                      when:
-                        visible:
-                          id: "mst-Answer.*"
-                          index: ${output.total}
-                      commands:
-                        - evalScript: ${output.total = output.total + 1}
-
-            # 3. Copy text nếu có multiple
-            - evalScript: ${output.hasMultiple = false}
-            - evalScript: ${output.copiedText = ""}
-
+      - repeat:
+          times: 7
+          commands:
             - runFlow:
                 when:
-                  visible: "Chosen answers:.*"
+                  visible:
+                    id: "mst-Answer.*"
+                    index: ${output.total}
                 commands:
-                  - copyTextFrom:
-                      text: "Chosen answers:.*"
-                  - evalScript: ${output.hasMultiple = true}
-                  - evalScript: ${output.copiedText = maestro.copiedText} # Lưu lại text đã copy
+                  - evalScript: ${output.total = output.total + 1}
 
-            - runScript:
-                file: ../Daily/randomAnswer.js
-                env:
-                  total: ${output.total}
-                  hasMultiple: ${output.hasMultiple}
-                  copiedText: ${output.copiedText}
+      # 3. Copy text nếu có multiple
+      - evalScript: ${output.hasMultiple = false}
+      - evalScript: ${output.copiedText = ""}
 
-            - evalScript: ${output.current  = 0}
+      - runFlow:
+          when:
+            visible: "Chosen answers:.*"
+          commands:
+            - copyTextFrom:
+                text: "Chosen answers:.*"
+            - evalScript: ${output.hasMultiple = true}
+            - evalScript: ${output.copiedText = maestro.copiedText} # Lưu lại text đã copy
 
-            # 5. Click các đáp án đã chọn
-            - repeat:
-                times: ${output.required}
+      - runScript:
+          file: ../Daily/randomAnswer.js
+          env:
+            total: ${output.total}
+            hasMultiple: ${output.hasMultiple}
+            copiedText: ${output.copiedText}
+
+      - evalScript: ${output.current  = 0}
+
+      # 5. Click các đáp án đã chọn
+      - repeat:
+          times: ${output.required}
+          commands:
+            - runFlow:
                 commands:
-                  - runFlow:
-                      commands:
-                        - tapOn:
-                            id: "mst-Answer.*"
-                            # Maestro sẽ giải mã thành output.idx0, output.idx1...
-                            index: ${output["idx" + output.current ]}
+                  - tapOn:
+                      id: "mst-Answer.*"
+                      # Maestro sẽ giải mã thành output.idx0, output.idx1...
+                      index: ${output["idx" + output.current ]}
 
-                  - evalScript: ${output.current  = output.current + 1 }
+            - evalScript: ${output.current  = output.current + 1 }
 
       # - assertVisible:
       #     id: mst-Explanation
-
-            - tapOn: "Next"
+      - runFlow: ../ClosePopup/CloseBadge.yaml
+      - tapOn: "Next"
 
 - tapOn: icon-Submit
 - assertVisible: SUBMIT
@@ -74,12 +74,12 @@ appId: ${output.appId}
 
 # back về màn topic/ Practice
 - tapOn: mst-Back
-
+- runFlow: ../ClosePopup/ClosePopup.yaml
 # back về màn Practice
 - tapOn:
     text: mst-Back
     optional: true
-
+- runFlow: ../ClosePopup/ClosePopup.yaml
 # back về màn home
 - tapOn: mst-Back
 

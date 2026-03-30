@@ -16,7 +16,7 @@ appId: ${output.appId}
           commands:
             - tapOn:
                 id: "mst-Answer-Correct"
-
+      - runFlow: ../ClosePopup/CloseBadge.yaml
       - tapOn: "Continue"
 
 - tapOn: mst-Back
@@ -40,4 +40,5 @@ appId: ${output.appId}
           commands:
             - tapOn:
                 id: "mst-Answer-Correct"
+      - runFlow: ../ClosePopup/CloseBadge.yaml
       - tapOn: "Continue"

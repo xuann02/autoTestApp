@@ -39,7 +39,7 @@ appId: ${output.appId}
           commands:
             - tapOn:
                 id: "mst-Answer-Correct"
-
+      - runFlow: ../ClosePopup/CloseBadge.yaml
       - tapOn: "Continue"
 
 # tắt popup đi

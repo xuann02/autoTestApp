@@ -97,6 +97,8 @@ appId: ${output.appId}
                             index: ${output["idx" + output.current ]}
 
                   - evalScript: ${output.current  = output.current + 1 }
+
+            - runFlow: ../ClosePopup/CloseBadge.yaml
             - tapOn: "Next"
 
       # popup Submit
@@ -140,7 +142,7 @@ appId: ${output.appId}
                 commands:
                   - tapOn:
                       id: "mst-Answer-Correct"
-            - runFlow: ../ClosePopup/ClosePopup.yaml
+            - runFlow: ../ClosePopup/CloseBadge.yaml
             - tapOn: "Next"
       # Check icon Submit
       - tapOn: icon-Submit

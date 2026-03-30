@@ -63,7 +63,8 @@ appId: ${output.appId}
                             index: ${output["idx" + output.current ]}
 
                   - evalScript: ${output.current  = output.current + 1 }
-
+                  
+            - runFlow: ../ClosePopup/CloseBadge.yaml
             - tapOn: "Next"
 
 # tắt popup Submit

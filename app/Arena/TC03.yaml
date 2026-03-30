@@ -9,22 +9,22 @@ appId: ${output.appId}
 
 # button Play Again
 - tapOn: Play Again
+- tapOn: Start -1
 - repeat:
-    while:
-      notVisible: "Question 5"
+    times: 5
     commands:
       - scrollUntilVisible:
           element:
             id: mst-Answer-Correct
           direction: DOWN
       - repeat:
-                while:
-                  notVisible:
-                      text: "Explanation:"
-                commands:
-                  - tapOn:
-                      id: "mst-Answer-Correct"
-
+          while:
+            notVisible:
+              text: "Explanation:"
+          commands:
+            - tapOn:
+                id: "mst-Answer-Correct"
+      - runFlow: ../ClosePopup/CloseBadge.yaml
       - tapOn: "Next"
 
 - tapOn:

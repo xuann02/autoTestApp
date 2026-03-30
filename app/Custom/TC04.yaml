@@ -85,6 +85,7 @@ appId: ${output.appId}
 
                   - evalScript: ${output.current  = output.current + 1 }
 
+            - runFlow: ../ClosePopup/CloseBadge.yaml
             - tapOn: "Next"
 
       # click icon Submit

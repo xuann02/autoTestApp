@@ -67,7 +67,7 @@ appId: ${output.appId}
 
       # - assertVisible:
       #     id: mst-Explanation
-
+            - runFlow: ../ClosePopup/CloseBadge.yaml
             - tapOn: "Next"
 
 - tapOn: icon-Submit
