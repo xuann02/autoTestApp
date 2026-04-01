@@ -1,6 +1,5 @@
 appId: ${output.appId}
 ---
-
 - tapOn:
           text: "Scrim"
           optional: true

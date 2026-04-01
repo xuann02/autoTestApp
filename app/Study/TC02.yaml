@@ -7,7 +7,8 @@ appId: ${output.appId}
 # case 1: app có topic để click
 - tapOn:
     below: "Daily Challenge"
-    index: 3
+    text: ".*%"
+    # index: 3
     optional: true
 
 # nếu có Continue → là case topic

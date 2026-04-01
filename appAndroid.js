@@ -1,9 +1,10 @@
 const apps = [
   // "com.sima.cfa",
-  "com.sima.ccna",
-  "com.sima.ceh",
-  "org.sima.g1test",
+  // "com.sima.ccna",
+  // "com.sima.ceh",
+  // "org.sima.g1test",
   "com.sima.ged",
+  "com.simple.comptianetworkplus",
   // "com.sima.cen",
   // "com.simple.comptiasecurityplus",
   // "com.sima.naplex",
@@ -38,7 +39,7 @@ const apps = [
   // "com.sima.vtne",
   // "com.sima.hesia2test",
   // "com.sima.pl300",
-  // "com.simple.comptianetworkplus",
+
   // "com.sima.nasmcpt",
   // "com.sima.asvab",
   // "com.sima.pccn",

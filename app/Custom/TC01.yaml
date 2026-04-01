@@ -8,6 +8,4 @@ appId: ${output.appId}
 
 # 1. Check hiển thị Custom test
 - assertVisible:
-      text: " Custom Tests.*"
-
-
+      text: "Custom Tests"

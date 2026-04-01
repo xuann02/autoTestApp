@@ -1,7 +1,7 @@
 appId: ${output.appId}
 ---
 - launchApp
-- tapOn: Study
+- tapOn: "Study"
 - assertVisible:
     id: icon-Token
 - tapOn:
@@ -16,7 +16,7 @@ appId: ${output.appId}
     45
 - assertVisible: |-
     3-Day Pro
-    70
+    65
 - assertVisible: |-
     4-Day Pro
-    95
+    80

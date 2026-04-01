@@ -137,7 +137,7 @@ appId: ${output.appId}
             - repeat:
                 while:
                   notVisible:
-                      text: "Explanation:"
+                    text: "Explanation:"
                 commands:
                   - tapOn:
                       id: "mst-Answer-Correct"
