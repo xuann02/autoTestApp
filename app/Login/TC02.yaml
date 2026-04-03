@@ -1,4 +1,4 @@
-appId: ${output.appId}
+appId: ${appId}
 ---
 # Login gg
 - assertVisible: Log In

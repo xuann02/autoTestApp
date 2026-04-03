@@ -1,4 +1,4 @@
-appId: ${output.appId}
+appId: ${appId}
 ---
 # 3.2 Click button Try again mản result
 - tapOn: Try Again

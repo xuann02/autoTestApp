@@ -1,4 +1,4 @@
-appId: ${output.appId}
+appId: ${appId}
 ---
 # màn result
 - assertVisible: "Game Over     "

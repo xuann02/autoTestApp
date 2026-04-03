@@ -1,4 +1,4 @@
-appId: ${output.appId}
+appId: ${appId}
 ---
 - launchApp
 - tapOn: Tests
@@ -7,5 +7,4 @@ appId: ${output.appId}
       direction: UP
 
 # 1. Check hiển thị Custom test
-- assertVisible:
-      text: "Custom Tests"
+- assertVisible: "Custom Tests "

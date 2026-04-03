@@ -1,0 +1,9 @@
+appId: ${APP_ID}
+---
+- clearState: ${APP_ID}
+- launchApp:
+    appId: ${APP_ID}
+- runFlow:
+    file: appModul.yaml
+    env:
+      APP_ID: ${APP_ID}

@@ -1,13 +1,13 @@
-appId: ${output.appId}
+appId: ${appId}
 ---
 - launchApp
 - tapOn: Tests
 
 - swipe:
     direction: UP
-    
+
 - tapOn:
-          text: ".*Custom Test 1.*"
+    text: ".*Custom Test 1.*"
 - runFlow:
     commands:
       # hiển thị màn mua
@@ -17,7 +17,6 @@ appId: ${output.appId}
 
 - runFlow:
     commands:
-      
       # Check button Previous
       - repeat:
           while:

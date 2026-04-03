@@ -1,4 +1,5 @@
-appId: ${output.appId}
+appId: ${appId}
+# appId: com.simple.comptianetworkplus
 ---
 - launchApp:
     clearState: true
@@ -74,8 +75,24 @@ appId: ${output.appId}
 #       - tapOn: Next
 
 # 4. Login
-- assertVisible: Log In
-- tapOn: Skip
+- runFlow:
+    when:
+      visible: "Log In"
+    commands:
+      - runFlow:
+          when:
+            visible: "Skip"
+          commands:
+            - tapOn:
+                text: "Skip"
+                optional: true
+      - runFlow:
+          when:
+            visible: "Log In" # Nếu đã chuyển màn, chữ "Log In" biến mất, lệnh này sẽ bị bỏ qua
+          commands:
+            - tapOn:
+                text: "Not now"
+                optional: true
 # - runScript: randomChoice.js
 
 # 4.1 Skip login

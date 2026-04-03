@@ -1,4 +1,4 @@
-appId: ${output.appId}
+appId: ${appId}
 ---
 - launchApp
 - tapOn: Tests
@@ -7,8 +7,7 @@ appId: ${output.appId}
     direction: UP
 
 # 1. Check hiển thị Custom test
-- assertVisible:
-    text: "Custom Tests"
+- assertVisible: "Custom Tests "
 
 # 2. Tạo custom mới
 - tapOn: Create
@@ -19,6 +18,10 @@ appId: ${output.appId}
       # hiển thị màn mua
       - assertVisible: Pass For The First Time With
       - tapOn: mst-Close
+      # Back lại màn Tests
+      - tapOn: mst-Back
+      # Back lại màn Tests
+      - tapOn: mst-Back
     optional: true
 
 - runFlow:

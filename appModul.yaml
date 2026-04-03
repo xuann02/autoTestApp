@@ -1,26 +1,59 @@
-appId: com.sima.asvab
-# appId: ${APP_ID}
+# appId: com.simple.comptianetworkplus
+appId: ${APP_ID}
 ---
-- runFlow: app/Onboarding/TC01.yaml
+- runFlow:
+    file: app/Onboarding/TC01.yaml
+    env:
+      appId: ${APP_ID}
 
 # - runFlow: app/Login/login.yaml
 
-- runFlow: app/Daily/dailyChallenge.yaml
+- runFlow:
+    file: app/Daily/dailyChallenge.yaml
+    env:
+      appId: ${APP_ID}
 
-- runFlow: app/Study/study.yaml
+- runFlow:
+    file: app/Study/study.yaml
+    env:
+      appId: ${APP_ID}
 
-- runFlow: app/Audio/TC01.yaml
+- runFlow:
+    file: app/Audio/TC01.yaml
+    env:
+      appId: ${APP_ID}
 
-- runFlow: app/Passing/passing.yaml
+- runFlow:
+    file: app/Passing/passing.yaml
+    env:
+      appId: ${APP_ID}
 
-- runFlow: app/Diagnostic/diagnostic.yaml
+- runFlow:
+    file: app/Diagnostic/diagnostic.yaml
+    env:
+      appId: ${APP_ID}
 
-- runFlow: app/Practice/practice.yaml
+- runFlow:
+    file: app/Practice/practice.yaml
+    env:
+      appId: ${APP_ID}
 
-- runFlow: app/Final/final.yaml
+- runFlow:
+    file: app/Final/final.yaml
+    env:
+      appId: ${APP_ID}
 
-- runFlow: app/Custom/custom.yaml
+- runFlow:
+    file: app/Custom/custom.yaml
+    env:
+      appId: ${APP_ID}
 
-- runFlow: app/Arena/arena.yaml
+- runFlow:
+    file: app/Arena/arena.yaml
+    env:
+      appId: ${APP_ID}
 
-- runFlow: app/Token/TC01.yaml
+- runFlow:
+    file: app/Token/TC01.yaml
+    env:
+      appId: ${APP_ID}

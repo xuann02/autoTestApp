@@ -1,4 +1,4 @@
-appId: ${output.appId}
+appId: ${appId}
 ---
 # click icon Submit hiển thị popup Submit
 - tapOn: icon-Submit

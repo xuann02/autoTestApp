@@ -1,4 +1,4 @@
-appId: ${output.appId}
+appId: ${appId}
 ---
 # check Button Next Practice
 - assertVisible: Try Again

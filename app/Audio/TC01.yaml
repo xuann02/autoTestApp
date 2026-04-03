@@ -1,11 +1,12 @@
-appId: ${output.appId}
+appId: ${appId}
 # appId: com.sima.ccna
 ---
 - launchApp
 # Click vào 1 topic bất kỳ check icon audio
 - tapOn:
     below: "Daily Challenge"
-    index: 3
+    text: ".*%"
+    # index: 3
     optional: true
 
 # nếu có Continue → là case topic

@@ -1,4 +1,4 @@
-appId: ${output.appId}
+appId: ${appId}
 ---
 - launchApp
 - tapOn: Daily Challenge

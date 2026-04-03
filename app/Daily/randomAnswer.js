@@ -26,17 +26,6 @@ for (let i = arr.length - 1; i > 0; i--) {
     [arr[i], arr[j]] = [arr[j], arr[i]]; // Cách viết ES6 để hoán đổi vị trí
 }
 
-// // 4. Lấy danh sách các index ngẫu nhiên
-// const finalIndexes = arr.slice(0, required);
-
-// // 5. Gán vào đối tượng output để Maestro YAML có thể truy cập qua ${output.indexes}
-// output.indexes = finalIndexes;
-// output.required = required;
-
-// // In log để kiểm tra (Sẽ hiện trong console của Maestro)
-// console.log(`Total answers: ${_total} | Required: ${required} | Chosen Indexes: ${finalIndexes.join(', ')}`);
-// // ... giữ nguyên phần logic random bên trên ...
-
 // 4. Lấy danh sách các index ngẫu nhiên
 const finalIndexes = arr.slice(0, required);
 
@@ -49,5 +38,3 @@ finalIndexes.forEach((val, index) => {
     output["idx" + index] = val;
 });
 
-console.log(`Đã chuẩn bị cầu nối cho ${required} đáp án: ${finalIndexes.join(', ')}`);
-console.log(`Total answers: ${_total} | Required: ${required} | Chosen Indexes: ${finalIndexes.join(', ')}`);
